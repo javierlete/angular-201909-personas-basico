@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../persona';
+import { PersonaService } from '../persona.service';
 
 @Component({
   selector: 'app-listado',
@@ -8,14 +9,14 @@ import { Persona } from '../persona';
 })
 export class ListadoComponent implements OnInit {
 
-  personas: Persona[] = [
-    { id: 1, nombre: 'Javier Lete', email: 'javierlete@email.com' },
-    { id: 2, nombre: 'Pepe Pérez', email: 'pepeperez@email.com' }
-  ];
+  personas: Persona[];
 
-  constructor() { }
+  constructor(private personaService: PersonaService) { }
 
   ngOnInit() {
+    this.personaService.getPersonas().subscribe(
+      personasRecibidas => this.personas = personasRecibidas
+    );
   }
 
 }
