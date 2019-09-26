@@ -1,0 +1,15 @@
+table {
+    border: 1px solid darkgray;
+    border-collapse: collapse;
+}
+
+thead th {
+    background: black;
+    color: white;
+}
+
+th, td {
+    padding: 0.5em;
+    text-align: left;
+    border: 1px solid gray;
+}
