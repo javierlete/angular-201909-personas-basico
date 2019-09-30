@@ -7,7 +7,8 @@ import { PersonaComponent } from './persona/persona.component';
 const routes: Routes = [
   { path: '', redirectTo: 'listado', pathMatch: 'full' },
   { path: 'listado', component: ListadoComponent },
-  { path: 'persona', component: PersonaComponent }
+  { path: 'persona', component: PersonaComponent },
+  { path: 'persona/:id', component: PersonaComponent }
 ];
 
 @NgModule({
