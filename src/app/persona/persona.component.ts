@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../persona';
+import { PersonaService } from '../persona.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-persona',
@@ -12,13 +14,15 @@ export class PersonaComponent implements OnInit {
     id: 10, nombre: 'Javier Lete', email: 'javierlete@email.com'
   };
 
-  constructor() { }
+  constructor(private personaService: PersonaService, private location: Location) { }
 
   ngOnInit() {
   }
 
   onAceptar() {
-    console.log(this.persona);
+    this.personaService.addPersona(this.persona).subscribe(
+      _ => this.location.back()
+    );
   }
 
 }
