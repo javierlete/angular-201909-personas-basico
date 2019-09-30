@@ -23,4 +23,9 @@ export class PersonaService {
     this.personas.push(persona);
     return of(persona);
   }
+
+  borrarPersona(id: number): Observable<any> {
+    this.personas = this.personas.filter(p => p.id !== id);
+    return of({});
+  }
 }
