@@ -19,4 +19,16 @@ export class ListadoComponent implements OnInit {
     );
   }
 
+  onBorrar(id: number) {
+    console.log('Borrar', id);
+    this.personaService.borrarPersona(id).subscribe(
+      () => {
+        console.log('Borrando', id);
+        return this.personaService.getPersonas().subscribe(personasRecibidas => {
+          console.log(personasRecibidas);
+          return this.personas = personasRecibidas;
+        });
+      }
+    );
+  }
 }
