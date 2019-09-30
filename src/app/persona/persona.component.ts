@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 export class PersonaComponent implements OnInit {
 
   persona: Persona = {
-    id: 10, nombre: 'Javier Lete', email: 'javierlete@email.com'
+    id: 0, nombre: '', email: ''
   };
 
   constructor(private personaService: PersonaService, private location: Location) { }
