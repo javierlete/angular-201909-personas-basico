@@ -16,13 +16,19 @@ export class PersonaComponent implements OnInit {
   };
 
   constructor(
-    private personaService: PersonaService, 
+    private personaService: PersonaService,
     private location: Location,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
     const id: number = +this.route.snapshot.paramMap.get('id');
     console.log(id);
+
+    if (id !== 0) {
+      this.personaService.getPersona(id).subscribe(
+        personaRecibida => this.persona = personaRecibida
+      );
+    }
   }
 
   onAceptar() {
