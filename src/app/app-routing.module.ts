@@ -4,6 +4,7 @@ import { ListadoComponent } from './listado/listado.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'listado', pathMatch: 'full' },
   { path: 'listado', component: ListadoComponent }
 ];
 
