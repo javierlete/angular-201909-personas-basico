@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Persona } from '../persona';
 import { PersonaService } from '../persona.service';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-persona',
@@ -14,9 +15,14 @@ export class PersonaComponent implements OnInit {
     id: 0, nombre: '', email: ''
   };
 
-  constructor(private personaService: PersonaService, private location: Location) { }
+  constructor(
+    private personaService: PersonaService, 
+    private location: Location,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    const id: number = +this.route.snapshot.paramMap.get('id');
+    console.log(id);
   }
 
   onAceptar() {
