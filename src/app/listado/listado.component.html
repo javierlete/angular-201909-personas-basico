@@ -4,6 +4,7 @@
             <th>Id</th>
             <th>Nombre</th>
             <th>Email</th>
+            <th>Opciones</th>
         </tr>
     </thead>
     <tbody>
@@ -11,6 +12,7 @@
             <td>{{persona.id}}</td>
             <td>{{persona.nombre}}</td>
             <td>{{persona.email}}</td>
+            <td><a (click)="onBorrar(persona.id)">Borrar</a></td>
         </tr>
     </tbody>
 </table>
