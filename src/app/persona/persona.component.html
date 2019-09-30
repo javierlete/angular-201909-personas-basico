@@ -1,15 +1,15 @@
 <form>
     <div>
         <label for="id">Id</label>
-        <input type="number" id="id" name="id" readonly />
+        <input [(ngModel)]="persona.id" type="number" id="id" name="id" readonly />
     </div>
     <div>
         <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" readonly />
+        <input [(ngModel)]="persona.nombre" type="text" id="nombre" name="nombre" readonly />
     </div>
     <div>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" readonly />
+        <input [(ngModel)]="persona.email" type="email" id="email" name="email" readonly />
     </div>
     <div>
         <label></label>
