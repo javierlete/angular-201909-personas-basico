@@ -17,4 +17,8 @@ export class PersonaComponent implements OnInit {
   ngOnInit() {
   }
 
+  onAceptar() {
+    console.log(this.persona);
+  }
+
 }

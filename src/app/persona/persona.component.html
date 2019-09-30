@@ -5,15 +5,15 @@
     </div>
     <div>
         <label for="nombre">Nombre</label>
-        <input [(ngModel)]="persona.nombre" type="text" id="nombre" name="nombre" readonly />
+        <input [(ngModel)]="persona.nombre" type="text" id="nombre" name="nombre" />
     </div>
     <div>
         <label for="email">Email</label>
-        <input [(ngModel)]="persona.email" type="email" id="email" name="email" readonly />
+        <input [(ngModel)]="persona.email" type="email" id="email" name="email" />
     </div>
     <div>
         <label></label>
-        <button>Aceptar</button>
+        <button (click)="onAceptar()">Aceptar</button>
         <button routerLink="/listado">Cancelar</button>
     </div>
 </form>
