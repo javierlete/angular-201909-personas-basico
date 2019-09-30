@@ -12,7 +12,10 @@
             <td>{{persona.id}}</td>
             <td>{{persona.nombre}}</td>
             <td>{{persona.email}}</td>
-            <td><a (click)="onBorrar(persona.id)">Borrar</a></td>
+            <td>
+                <a routerLink="/persona/{{persona.id}}">Editar</a>
+                <a (click)="onBorrar(persona.id)">Borrar</a>
+            </td>
         </tr>
     </tbody>
 </table>
