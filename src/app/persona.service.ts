@@ -17,4 +17,10 @@ export class PersonaService {
   getPersonas(): Observable<Persona[]> {
     return of(this.personas);
   }
+
+  addPersona(persona: Persona): Observable<Persona> {
+    persona.id = Math.max(...this.personas.map(p => p.id)) + 1;
+    this.personas.push(persona);
+    return of(persona);
+  }
 }
