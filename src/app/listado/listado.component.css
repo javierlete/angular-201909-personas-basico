@@ -29,4 +29,5 @@ a {
 
 a:hover {
     background-color: lightgray;
+    cursor: pointer;
 }
