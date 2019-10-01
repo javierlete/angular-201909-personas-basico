@@ -1,0 +1,6 @@
+{
+    "personas": [
+        { "id": 1, "nombre": "Nombre1", "email": "email1@email.net" },
+        { "id": 2, "nombre": "Nombre2", "email": "email2@email.net" }
+    ]
+}
