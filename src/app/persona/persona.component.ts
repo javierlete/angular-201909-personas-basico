@@ -32,9 +32,15 @@ export class PersonaComponent implements OnInit {
   }
 
   onAceptar() {
-    this.personaService.addPersona(this.persona).subscribe(
-      _ => this.location.back()
-    );
+    if (this.persona.id === 0) {
+      this.personaService.addPersona(this.persona).subscribe(
+        _ => this.location.back()
+      );
+    } else {
+      this.personaService.modificarPersona(this.persona).subscribe(
+        _ => this.location.back()
+      );
+    }
   }
 
 }
