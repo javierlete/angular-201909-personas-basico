@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Persona } from './persona';
@@ -7,40 +8,27 @@ import { Persona } from './persona';
 })
 export class PersonaService {
 
-  personas: Persona[] = [
-    { id: 1, nombre: 'Javier Lete', email: 'javierlete@email.com' },
-    { id: 2, nombre: 'Pepe Pérez', email: 'pepeperez@email.com' }
-  ];
+  url = 'http://localhost:3000/personas/';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getPersonas(): Observable<Persona[]> {
-    return of(this.personas);
+    return this.http.get<Persona[]>(this.url);
   }
 
   getPersona(id: number): Observable<Persona> {
-    return of(this.personas.filter(p => p.id === id)[0]);
+    return this.http.get<Persona>(this.url + id);
   }
 
   addPersona(persona: Persona): Observable<Persona> {
-    persona.id = Math.max(...this.personas.map(p => p.id)) + 1;
-    this.personas.push(persona);
-    return of(persona);
+    return this.http.post<Persona>(this.url, persona);
   }
 
   modificarPersona(persona: Persona): Observable<Persona> {
-    this.personas.forEach((p, i) => {
-      if (p.id === persona.id) {
-        this.personas[i] = persona;
-        return of(this.personas[i]);
-      }
-    });
-
-    return of(persona);
+    return this.http.put<Persona>(this.url + persona.id, persona);
   }
 
   borrarPersona(id: number): Observable<any> {
-    this.personas = this.personas.filter(p => p.id !== id);
-    return of({});
+    return this.http.delete<Persona>(this.url + id);
   }
 }
