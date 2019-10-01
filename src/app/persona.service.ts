@@ -21,9 +21,21 @@ export class PersonaService {
   getPersona(id: number): Observable<Persona> {
     return of(this.personas.filter(p => p.id === id)[0]);
   }
+
   addPersona(persona: Persona): Observable<Persona> {
     persona.id = Math.max(...this.personas.map(p => p.id)) + 1;
     this.personas.push(persona);
+    return of(persona);
+  }
+
+  modificarPersona(persona: Persona): Observable<Persona> {
+    this.personas.forEach((p, i) => {
+      if (p.id === persona.id) {
+        this.personas[i] = persona;
+        return of(this.personas[i]);
+      }
+    });
+
     return of(persona);
   }
 
