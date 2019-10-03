@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     PersonaComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
     HttpClientModule
